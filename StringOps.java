@@ -24,6 +24,7 @@ public class StringOps {
     public static void main(String[] args) {
         System.out.println(capVowelsLowRest("yellow"));
         System.out.println(camelCase("  intrO   To   ComPUter SCience"));
+        printlnArray(allIndexOf("hello world", ' '));
         
     }
 
@@ -95,8 +96,21 @@ public class StringOps {
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int counter = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                counter++;
+            }
+        }
+        int[] indexes = new int[counter];
+        int j = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == chr) {
+                indexes[j] = i;
+                j++;
+            }
+        }
+        return indexes;
     }
 
     // helper function
@@ -128,5 +142,16 @@ public class StringOps {
             }
         }
         return answer;
+    }
+    // helper function 
+    public static void printlnArray(int[] array) {
+        System.out.print("{");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i]);
+            if (i < array.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("}");
     }
 }
